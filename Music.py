@@ -131,65 +131,6 @@ class Music(commands.Cog):
               #self.music_queue.append([song, voice_channel])
               #self.request_queue.append(query)
 
-  """
-  @commands.command()
-  async def playlist(self,ctx,name):
-    user = ctx.message.author
-    vc = user.voice.channel
-    voice_channel = ctx.author.voice.channel
-    if voice_channel is None:
-       return await ctx.send("Connect to a voice channel!")
-    else: 
-      if (name=="maggie" or name=="Maggie"):
-        for i in range(len(words)):
-          try:
-            song = self.search_yt(words[i])
-            voice = discord.utils.get(self.client.voice_clients, guild=ctx.guild)
-            if voice == None:
-              await ctx.send(f"Joined **{vc}**")
-              self.music_queue.append([song, voice_channel])
-              self.request_queue.append(words[i])
-              await self.play_music()
-              self.music_queue.pop(0)
-              self.request_queue.pop(0)
-            elif len(self.music_queue)==0:
-              self.music_queue.append([song, voice_channel])
-              self.request_queue.append(words[i])
-              await self.play_music()
-              self.music_queue.pop(0)
-              self.request_queue.pop(0)
-            elif voice!=None or len(self.music_queue) != 0 :
-              self.request_queue.append(words[i])
-              self.music_queue.append([song, voice_channel])
-          except Exception as e:
-            print(words[i]+" could not be loaded.")
-        await ctx.send("**Loaded Maggie's Playlist**")
-      elif (name=="nanthiga" or name=="Nanthiga"):
-        for i in range(len(words2)):
-          try:
-            song = self.search_yt(words2[i])
-            voice = discord.utils.get(self.client.voice_clients, guild=ctx.guild)
-            if voice == None:
-              self.music_queue=[]
-              await ctx.send(f"Joined **{vc}**")
-              self.music_queue.append([song, voice_channel])
-              self.request_queue.append(words2[i])
-              await self.play_music()
-              self.music_queue.pop(0)
-              self.request_queue.pop(0)
-            elif len(self.music_queue)==0:
-              self.music_queue.append([song, voice_channel])
-              self.request_queue.append(words2[i])
-              await self.play_music()
-              self.music_queue.pop(0)
-              self.request_queue.pop(0)
-            elif voice!=None or len(self.music_queue) != 0 :
-              self.music_queue.append([song, voice_channel])
-              self.request_queue.append(words2[i])
-          except Exception as e:
-            print(words2[i]+" could not be loaded.")
-        await ctx.send("**Loaded Nanthiga's Playlist**")
-  """
 
   
   @commands.command()
@@ -224,35 +165,6 @@ class Music(commands.Cog):
           
       else:
           await ctx.send("No music in queue")
-  
-
-  """
-  @commands.command()
-  async def remove(self,ctx,number):
-    num=int(number)
-    if len(self.music_queue) > 0:
-      await ctx.send("Removed: " + str(self.music_queue[num-1][0]['title']))
-      self.music_queue.pop(num-1)
-      #self.request_queue.pop(num-1)
-    else :
-      await ctx.send("Queue is already empty.")
-
-
-  @commands.command()
-  async def select(self,ctx,number):
-    num = int(number)
-    if len(self.music_queue)==0 or num>len(self.music_queue):
-      return await ctx.send("Please enter a valid queue number.")
-    query = str(self.request_queue[num-1])
-    song = self.search_yt(query)
-    voice_channel = ctx.author.voice.channel
-    self.music_queue.pop(num-1)
-    self.request_queue.pop(num-1)
-    self.music_queue.insert(0,[song, voice_channel])
-    self.request_queue.insert(0,query)
-    self.vc.stop()
-    await self.play_music()
-  """
   
 
   #ping command
